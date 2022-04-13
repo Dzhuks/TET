@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="text-align: center;">Ақжайық ауданы</h1>
+    <center>
+        <img src="./static/img/map.png" usemap="#panel" width="500" height="600" border="0" alt="Ақжайық ауданының картасы" title="Ақжайық ауданының картасы">
+    </center>
+    <map name="panel">
+		{% for area in areas %}
+			<area href="{{url_for('area', area_name=area.area_name)}}" shape="circle" coords="{{area.coord}}">
+			<area href="primerk3.html" shape="circle"coords="10,10,10">
+		{% endfor %}
+    </map>
+	{% for area in arseas %}
+		<p>{{area.coord}}</p>
+	{% endfor %}
+{% endblock %}
